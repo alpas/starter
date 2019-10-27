@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Alpas</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Halant:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: ghostwhite;
+            color: #3F3D56;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .container {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .title {
+            font-family: 'Halant', sans-serif;
+            font-size: 90px;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            color: coral;
+            font-family: 'Halant', sans-serif;
+            font-size: 42px;
+            font-weight: 300;
+        }
+
+        .topbar {
+            text-align: right;
+            max-width: 1140px;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .links > a {
+            color: #000;
+            padding: 0 20px;
+            font-size: 18px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .my-md {
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="app" class="container">
+    <div class="topbar links">
+        {% if hasRoute('login') %}
+            {% auth %}
+                <a href="/home">Home</a>
+                {% else %}
+                <a href="{{ route('login') }}">Log in</a>
+                {% if hasRoute('register') %}
+                    <a href="{{ route('register') }}"><strong>Register</strong> </a>
+                {% endif %}
+            {% endauth %}
+        {% endif %}
+    </div>
+    <div class="content">
+        <div>
+            <img src="launch.svg" alt="Alpas has landed!" width="460px">
+        </div>
+        <div class="my-md">
+            <h1 class="title"> Alpas </h1>
+            <h2 class="subtitle"> It has landed! </h2>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+
+APP_NAME="__APP_NAME__"
+
+APP_BIN_PATH="./build/install/$APP_NAME/bin/$APP_NAME"
+
+build() {
+  cecholn "YELLOW" "Building $APP_NAME..."
+  if ./gradlew "$@" installdist; then
+    cecholn "GREEN" "🙌 Done!"
+  else
+    cecholn "RED" "😿 Failed!"
+  fi
+}
+
+buildJar() {
+  cecholn "YELLOW" "Building jar..."
+  if ./gradlew shadowJar >/dev/null 2>&1; then
+    cecholn "GREEN" "🙌 Done!"
+  else
+    cecholn "RED" "😿 Failed!"
+  fi
+}
+
+checkBinAndWarn() {
+  # fixme: We cannot just count on the presence of $APP_BIN_PATH to determine whether we need to build or not
+  if [ ! -f "$APP_BIN_PATH" ]; then
+    cecholn "YELLOW" "Looks like we need to build your project first. This is going to take few seconds..."
+    cecholn "RED" "To speed things up we highly recommend that during development you run 'alpas watch' in another terminal."
+    printf "\n\n"
+    build --quiet >/dev/null 2>&1
+  fi
+}
+
+run_app() {
+  if checkBinAndWarn; then
+    MY_PATH=$(dirname "$0")
+    MY_PATH=$( (cd "$MY_PATH" && pwd))
+    APP_PATH="${MY_PATH}"
+
+    export alpas_run_mode="console"
+    export alpas_root_dir="$APP_PATH"
+
+    "$APP_BIN_PATH" "$@"
+
+    unset alpas_run_mode
+    unset alpas_root_dir
+  else
+    cecholn "RED" "Project build failed."
+  fi
+}
+
+cecholn() {
+  RED="\033[0;31m"
+  GREEN='\033[0;32m'
+  YELLOW='\033[1;33m'
+  NC='\033[0m' # No Color
+
+  printf "${!1}${2} ${NC}\n"
+}
+
+cecho() {
+  RED="\033[0;31m"
+  GREEN='\033[0;32m'
+  YELLOW='\033[1;33m'
+  NC='\033[0m' # No Color
+
+  printf "${!1}${2} ${NC}"
+}
+
+if [[ $# -eq 1 ]]; then
+  case "$1" in
+  new)
+    cecholn "RED" " Oops! I need your app name."
+    printf " Please provide app's full name. The command should be something like:"
+    cecholn "GREEN" " ./alpas new com.example.blog"
+    ;;
+  watch)
+    ./gradlew shadowJar >/dev/null 2>&1
+    java -jar ${APP_NAME}.jar
+    ;;
+  serve)
+    ./gradlew shadowJar >/dev/null 2>&1
+    java -jar ${APP_NAME}.jar
+    ;;
+  jar)
+    cecholn "GREEN" "Building jar..."
+    ./gradlew shadowJar >/dev/null 2>&1
+    if [[ $? -eq 0 ]]; then
+      cecholn "GREEN" "Completed!"
+    else
+      cecholn "RED" "Failed!"
+    fi
+    ;;
+  *)
+    run_app "$@"
+    ;;
+  esac
+elif [[ $1 -eq "new" ]]; then
+  if [ -f ./.env ]; then
+    cecho "RED" " Oops!"
+    echo "Looks like your app is already crafted."
+  else
+    cecholn "GREEN" " Crafting your app ..."
+
+    cecholn "GREEN" " Making sure you have the correct gradle version"
+    gradle wrapper --gradle-version 5.0 >/dev/null 2>&1
+
+    cecholn "GREEN" " Copying .env file"
+    cp ./.example.env ./.env
+
+    # todo: replace perl with bash
+    perl -p -i -e 's/__PACKAGE__/'"$2"'/g' `grep -Ril --exclude-dir=node_modules --exclude-dir=.gradle --exclude-dir=.idea  __PACKAGE__ .`
+    app_name="${2##*.}"
+    perl -p -i -e 's/__APP_NAME__/'"${app_name}"'/g' `grep -Ril --exclude-dir=node_modules --exclude-dir=.gradle --exclude-dir=.idea  __APP_NAME__ .`
+
+    cecholn "GREEN" " Generating your app key."
+    app_key=$(env LC_CTYPE=C tr -dc "A-Za-z0-9_$%^&*()-+=" </dev/urandom | head -c 32 | base64)
+    perl -p -i -e 's/__APP_KEY__/'"base64:${app_key}"'/g' `grep -l __APP_KEY__ .env`
+
+    cecholn "GREEN" " Building your app. This will take few seconds."
+    gradle build >/dev/null 2>&1
+    build --quiet >/dev/null 2>&1
+
+    cecholn "GREEN" " ✓ You app is crafted. Let's build something awesome!"
+  fi
+else
+  run_app "$@"
+fi
