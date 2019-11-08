@@ -64,7 +64,10 @@ atlassian-ide-plugin.xml
 build/
 .gradle/
 gradle/
-.env
 node_modules
 *.jar
 *.log
+
+.env
+.env.*
+!.env.example

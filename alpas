@@ -107,7 +107,7 @@ elif [[ $1 -eq "new" ]]; then
     gradle wrapper --gradle-version 5.0 >/dev/null 2>&1
 
     cecholn "GREEN" " Copying .env file"
-    cp ./.example.env ./.env
+    cp ./.env.example ./.env
 
     # todo: replace perl with bash
     perl -p -i -e 's/__PACKAGE__/'"$2"'/g' `grep -Ril --exclude-dir=node_modules --exclude-dir=.gradle --exclude-dir=.idea  __PACKAGE__ .`
