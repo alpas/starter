@@ -96,7 +96,7 @@ if [[ $# -eq 1 ]]; then
     run_app "$@"
     ;;
   esac
-elif [[ $1 -eq "init" ]]; then
+elif [[ $1 == *"init"* ]]; then
   if [ -f ./.env ]; then
     cecho "RED" " Oops!"
     echo "Looks like your app is already crafted."
