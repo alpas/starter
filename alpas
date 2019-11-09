@@ -70,10 +70,10 @@ cecho() {
 
 if [[ $# -eq 1 ]]; then
   case "$1" in
-  new)
+  init)
     cecholn "RED" " Oops! I need your app name."
     printf " Please provide app's full name. The command should be something like:"
-    cecholn "GREEN" " ./alpas new com.example.blog"
+    cecholn "GREEN" " ./alpas init com.example.blog"
     ;;
   watch)
     ./gradlew shadowJar >/dev/null 2>&1
@@ -96,7 +96,7 @@ if [[ $# -eq 1 ]]; then
     run_app "$@"
     ;;
   esac
-elif [[ $1 -eq "new" ]]; then
+elif [[ $1 -eq "init" ]]; then
   if [ -f ./.env ]; then
     cecho "RED" " Oops!"
     echo "Looks like your app is already crafted."
