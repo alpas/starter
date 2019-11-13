@@ -1,11 +1,11 @@
 let mix = require('laravel-mix')
-const publicPath = 'src/main/resources/web'
-const assetsPath = 'src/main/assets'
+const resourcesPath = 'src/main/resources'
+const publicPath = `${resourcesPath}/web`
 
 mix
     .setPublicPath(publicPath)
-    .js(`${assetsPath}/js/app.js`, 'js')
-    .sass(`${assetsPath}/sass/app.scss`, 'css')
+    .js(`${resourcesPath}/js/app.js`, 'js')
+    .sass(`${resourcesPath}/sass/app.scss`, 'css')
     .version()
     .disableNotifications()
 
