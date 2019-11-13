@@ -10,6 +10,11 @@ import me.liuwj.ktorm.support.sqlite.SQLiteDialect
 @Suppress("unused")
 class DatabaseConfig(env: Environment) : DatabaseConfig(env) {
     init {
+        // Uncomment the following line to add database support in your app
+        // addConnections(env)
+    }
+
+    private fun addConnections(env: Environment) {
         addConnection(
             "mysql",
             lazy { MySqlConnection(env, dev.alpas.ozone.ConnectionConfig(sqlDialect = MySqlDialect())) })
