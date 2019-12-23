@@ -4,13 +4,17 @@ APP_NAME="__APP_NAME__"
 
 APP_BIN_PATH="./build/install/$APP_NAME/bin/$APP_NAME"
 
-build() {
+install() {
   cecholn "YELLOW" "Building $APP_NAME..."
   if ./gradlew "$@" installdist; then
     cecholn "GREEN" "🙌 Done!"
   else
     cecholn "RED" "😿 Failed!"
   fi
+}
+
+build() {
+    install "$@"
 }
 
 buildJar() {
@@ -79,6 +83,10 @@ if [[ $# -eq 1 ]]; then
     ./gradlew shadowJar >/dev/null 2>&1
     java -jar ${APP_NAME}.jar
     ;;
+  build)
+    rm -rf build
+    build
+    ;;
   serve)
     ./gradlew shadowJar >/dev/null 2>&1
     java -jar ${APP_NAME}.jar
@@ -119,7 +127,7 @@ elif [[ $1 == *"init"* ]]; then
     perl -p -i -e 's/__APP_KEY__/'"base64:${app_key}"'/g' `grep -l __APP_KEY__ .env`
 
     cecholn "GREEN" " Building your app. This will take few seconds."
-    gradle build >/dev/null 2>&1
+    gradle build --quiet >/dev/null 2>&1
     build --quiet >/dev/null 2>&1
 
     cecholn "GREEN" " ✓ You app is crafted. Let's build something awesome!"

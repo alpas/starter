@@ -32,7 +32,7 @@ interface User : Entity<User>, Authenticatable {
 
 object Users : MigratingTable<User>("users"), UserProvider {
     val id by bigIncrements("id").bindTo { it.id }
-    val email by varchar("email").unique().bindTo { it.email }
+    val email by varchar("email").index().unique().bindTo { it.email }
     val name by varchar("name").nullable().bindTo { it.name }
     val externalId by varchar("external_id").bindTo { it.externalId }
     val createdAt by timestamp("created_at").nullable().bindTo { it.createdAt }

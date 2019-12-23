@@ -8,6 +8,6 @@ fun Router.addRoutes() = apply {
 }
 
 private fun Router.webRoutes() {
-    get("/", WelcomeController::class).name("welcome")
+    get("/", WelcomeController::class).name("welcome").middlewareGroup("web")
 }
 
