@@ -17,7 +17,7 @@ startScripts {
 mainClassName = '__PACKAGE__.StartKt'
 
 group '__PACKAGE__'
-version '0.6'
+version '0.6.1'
 
 repositories {
     jcenter()

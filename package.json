@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "axios": "^0.19",
-    "bootstrap": "^4.1",
+    "bootstrap": "^4.4",
     "browser-sync": "^2.26",
     "browser-sync-webpack-plugin": "2.2",
     "concurrently": "^5.0",
@@ -22,7 +22,7 @@
     "lodash": "^4.17",
     "popper.js": "^1.16",
     "resolve-url-loader": "^3.1",
-    "sass": "^1.23",
+    "sass": "^1.24",
     "sass-loader": "^8.0",
     "vue": "^2.5.17",
     "vue-template-compiler": "^2.6.10"
