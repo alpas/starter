@@ -52,6 +52,8 @@ cecholn() {
   RED="\033[0;31m"
   GREEN='\033[0;32m'
   YELLOW='\033[1;33m'
+  BLUE='\033[1;34m'
+
   NC='\033[0m' # No Color
 
   printf "${!1}${2} ${NC}\n"
@@ -69,14 +71,14 @@ cecho() {
 
 checkJava() {
     java=$(command -v java)
-    cecholn "BLUE" "Making sure the correct version of Java is installed..."
+    cecholn "BLUE" " Making sure the correct version of Java is installed..."
     # echo $foobar
     if [[ "$java" ]]; then
         _java=java
     elif [[ -n "$JAVA_HOME" ]] && [[ -x "$JAVA_HOME/bin/java" ]];  then
         _java="$JAVA_HOME/bin/java"
     else
-        cecholn "RED" "Java not found. Make sure to install the proper version: https://alpas.dev/docs/installation"
+        cecholn "RED" " Java not found. Make sure to install the proper version: https://alpas.dev/docs/installation"
         exit 1
     fi
 
@@ -84,9 +86,9 @@ checkJava() {
         full_version=$("$_java" -version 2>&1 | head -1 | cut -d'"' -f2)
         version=$("$_java" -version 2>&1 | head -1 | cut -d'"' -f2 | sed '/^1\./s///' | cut -d'.' -f1)
         if [[ "$version" -gt "8" ]]; then
-            cecholn "GREEN" "Found supported Java version $full_version! 👍"
+            cecholn "GREEN" " Found supported Java version $full_version! 👍"
         else
-            cecholn "RED" "Unsupported Java version $full_version. Make sure to install the proper version: https://alpas.dev/docs/installation"
+            cecholn "RED" " Unsupported Java version $full_version. Make sure to install the proper version: https://alpas.dev/docs/installation"
             exit 1
         fi
     fi
@@ -136,8 +138,8 @@ elif [[ $1 == *"init"* ]]; then
   else
     cecholn "BLUE" " Crafting your app ..."
 
-    # todo: check that the proper versions of Java and Gradle are installed
-
+    # todo: check that the proper versions of Gradle is installed
+    checkJava
     gradle wrapper >/dev/null 2>&1
     chmod +x ./gradlew
     ./gradlew >/dev/null 2>&1
