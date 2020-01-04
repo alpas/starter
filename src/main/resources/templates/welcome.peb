@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Alpas</title>
+    <title>Alpas - The Rapid and Delightful Kotlin Web Framework</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Halant:300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <style>
         * {
@@ -35,19 +34,6 @@
             text-align: center;
         }
 
-        .title {
-            font-family: 'Halant', sans-serif;
-            font-size: 90px;
-            font-weight: 300;
-        }
-
-        .subtitle {
-            color: coral;
-            font-family: 'Halant', sans-serif;
-            font-size: 42px;
-            font-weight: 300;
-        }
-
         .topbar {
             text-align: right;
             max-width: 1140px;
@@ -63,9 +49,13 @@
             text-transform: uppercase;
         }
 
-        .my-md {
-            margin-top: 1em;
-            margin-bottom: 1em;
+        .links > a:hover {
+            color: #e53e3e;
+        }
+
+        .mt-16 {
+            margin-top: 3em;
+            margin-bottom: 3em;
         }
 
     </style>
@@ -88,13 +78,25 @@
     </div>
     <div class="content">
         <div>
-            <img src="launch.svg" alt="Alpas has landed!" width="460px">
+            <svg width="260px" viewBox="0 0 222 49" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g fill="#4a5568" fill-rule="nonzero" stroke="none" stroke-width="1">
+                    <polygon points="35.0193736 31.3771579 24.936057 8.34592105 14.8527404 31.3771579 12.5163622 36.75 7.37633005 48.5 0.5 48.5 21.6614385 1.5 28.2709295 1.5 49.5 48.5 42.4908653 48.5 37.3508332 36.75"/>
+                    <polygon points="169.01901 31.3771579 158.935441 8.34592105 148.851871 31.3771579 146.515434 36.75 141.375273 48.5 134.5 48.5 155.66197 1.5 162.271626 1.5 183.5 48.5 176.490689 48.5 171.350528 36.75"/>
+                    <polygon points="56.5 1.5 63.1805614 1.5 63.1805614 42.6587022 88.5 42.6587022 88.5 48.5 56.5 48.5"/>
+                    <path d="M134.5,17.8807381 C134.5,28.087159 127.101682,34.266422 114.860762,34.266422 L103.225631,34.266422 L103.225631,48.5000007 L96.5,48.5000007 L96.5,1.50000074 L114.860762,1.50000074 C127.099205,1.4975278 134.5,7.67555402 134.5,17.8807381 Z M127.774369,17.8807381 C127.774369,11.1659224 123.268729,7.34036981 114.66007,7.34036981 L103.225631,7.34036981 L103.225631,28.42358 L114.66007,28.42358 C123.266252,28.42358 127.771892,24.5955538 127.771892,17.8807381 L127.774369,17.8807381 Z"/>
+                    <path d="M185.5,42.6089568 L187.972832,37.3786508 C192.325722,40.9424288 197.783599,42.8648744 203.400349,42.812735 C211.481956,42.812735 214.954993,39.6597311 214.954993,35.5693477 C214.954993,24.104665 186.636764,31.3468173 186.636764,13.9145221 C186.636764,6.67236989 192.248001,0.50468431 204.537113,0.50468431 C209.840479,0.406613431 215.058934,1.8503013 219.563564,4.66175873 L217.36016,10.0254469 C213.530462,7.56203315 209.085401,6.23487735 204.537113,6.19688752 C196.587144,6.19688752 193.181772,9.54996449 193.181772,13.6391129 C193.181772,25.1050305 221.5,17.9308044 221.5,35.1617914 C221.5,42.3372526 215.755895,48.5 203.400349,48.5 C196.254972,48.5024681 189.240004,46.0954158 185.5,42.6089568 Z"/>
+                    <path fill="#e53e3e" d="M21.5,44.5257984 C21.5030458,43.4370603 21.9456423,42.3957064 22.7273652,41.6380182 C23.5090881,40.8803301 24.5636596,40.4705476 25.6517992,40.5016497 C27.8362058,40.5846482 29.5494323,42.4061254 29.4989108,44.5918421 C29.4483893,46.7775588 27.6528332,48.517909 25.4669253,48.4998609 C23.2810175,48.4818127 21.5144345,46.7120514 21.5,44.5257984 L21.5,44.5257984 Z"/>
+                </g>
+            </svg>
         </div>
-        <div class="my-md">
-            <h1 class="title"> Alpas </h1>
-            <h2 class="subtitle"> It has landed! </h2>
+        <div class="mt-16 links">
+            <a href="https://alpas.dev" target="_alpas">/ ALPAS</a>
+            <a href="https://alpas.dev/docs" target="_docs">/ DOCUMENTATION</a>
+            <a href="https://twitter.com/alpasdev" target="_twitter">/ @ALPASDEV</a>
+            <a href="https://join.slack.com/t/alpasdev/shared_invite/enQtODcwMjE1MzMxODQ3LTJjZWMzOWE5MzBlYzIzMWQ2MTcxN2M2YjU3MTQ5ZDE4NjBmYjY1YTljOGIwYmJmYWFlYjc4YTcwMDFmZDIzNDE" target="_slack">/ SLACK </a>
+            <a href="https://github.com/alpas" target="_github">/ GITHUB </a>
+            <a href="https://kotlinlang.org/" target="_kotlin">/ KOTLIN</a>
         </div>
-
     </div>
 </div>
 </body>
