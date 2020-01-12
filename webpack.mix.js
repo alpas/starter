@@ -1,23 +1,22 @@
 let mix = require('laravel-mix')
+const tailwindcss = require('tailwindcss')
 const resourcesPath = 'src/main/resources'
 const publicPath = `${resourcesPath}/web`
 
 mix
     .setPublicPath(publicPath)
     .js(`${resourcesPath}/js/app.js`, 'js')
-    .sass(`${resourcesPath}/sass/app.scss`, 'css')
-    .version()
+    .less(`${resourcesPath}/css/app.less`, 'css')
+    .options({postCss: [tailwindcss('./tailwind.config.js')]})
     .disableNotifications()
 
-if (!mix.inProduction()) {
+if (mix.inProduction()) {
+    mix.version()
+} else {
     mix.browserSync({
-        proxy: `localhost:${process.env.MIX_APP_PORT}`,
-        notify: false,
         open: false,
         files: [
             'build/**/*',
-            `${publicPath}/js/**/*.js`,
-            `${publicPath}/css/**/*.css`
         ],
     })
 }
