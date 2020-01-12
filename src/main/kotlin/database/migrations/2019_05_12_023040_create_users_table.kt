@@ -6,12 +6,10 @@ import dev.alpas.ozone.migration.Migration
 
 class CreateUsersTable : Migration() {
     override fun up() {
-        createTable(Users)
-        createTable(PasswordResetTokens)
+        createTable(Users, PasswordResetTokens)
     }
 
     override fun down() {
-        dropTable(Users)
-        dropTable(PasswordResetTokens)
+        dropTable(Users, PasswordResetTokens)
     }
 }

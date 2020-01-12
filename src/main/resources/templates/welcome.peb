@@ -28,7 +28,7 @@
         <div class="mx-auto">
             <a href="https://alpas.dev">
                 <svg width="260px" viewBox="0 0 222 49" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="#4a5568" fill-rule="nonzero" stroke="none" stroke-width="1">
+                    <g fill="#1D2D35" fill-rule="nonzero" stroke="none" stroke-width="1">
                         <polygon
                                 points="35.0193736 31.3771579 24.936057 8.34592105 14.8527404 31.3771579 12.5163622 36.75 7.37633005 48.5 0.5 48.5 21.6614385 1.5 28.2709295 1.5 49.5 48.5 42.4908653 48.5 37.3508332 36.75"/>
                         <polygon
@@ -43,7 +43,7 @@
                 </svg>
             </a>
         </div>
-        <div class="mt-24 flex flex-row text-lg justify-between uppercase">
+        <div class="mt-24 flex flex-row text-lg justify-between uppercase text-gray-900 font-semibold">
             <a href="https://alpas.dev/docs" target="_docs" class="hover:text-red-600 flex">
                 <svg class="mr-2 text-gray-700 w-4" aria-hidden="true" focusable="false" role="img"
                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

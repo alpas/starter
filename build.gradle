@@ -1,7 +1,7 @@
 buildscript {
     ext.kotlin_version = '1.3.61'
     ext.ktorm_version = '2.5'
-    ext.alpas_version = '0.7.0'
+    ext.alpas_version = '0.9.1'
 }
 
 plugins {
@@ -30,8 +30,6 @@ dependencies {
     implementation "dev.alpas:framework:$alpas_version"
     implementation 'ch.qos.logback:logback-classic:1.3.0-alpha4'
     implementation 'mysql:mysql-connector-java:5.1.46'
-    implementation "me.liuwj.ktorm:ktorm-support-mysql:$ktorm_version"
-    implementation "me.liuwj.ktorm:ktorm-support-sqlite:$ktorm_version"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     testImplementation "dev.alpas:pulsar:$alpas_version"

@@ -9,6 +9,6 @@ import dev.alpas.queue.QueueConfig as BaseConfig
 class QueueConfig(env: Environment) : BaseConfig(env) {
     init {
         addConnection("activemq", lazy { ActiveMQConnection(env) })
-        addConnection("sync", lazy { PassThroughQueueConnection() })
+        addConnection("passthrough", lazy { PassThroughQueueConnection() })
     }
 }
