@@ -4,83 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Alpas</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Halant:300&display=swap" rel="stylesheet">
+    <title>Alpas - The Rapid and Delightful Kotlin Web Framework</title>
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        html, body {
-            background-color: ghostwhite;
-            color: #3F3D56;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .container {
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .title {
-            font-family: 'Halant', sans-serif;
-            font-size: 9em;
-            font-weight: 300;
-        }
-
-        .subtitle {
-            font-family: 'Halant', sans-serif;
-            font-size: 4em;
-            font-weight: 300;
-        }
-
-        .text {
-            font-family: 'Halant', sans-serif;
-            font-size: 2.2em;
-            font-weight: 300;
-        }
-
-        .my-md {
-            margin: 1em 0;
-        }
-
-        .my-lg {
-            margin: 3em 0;
-        }
-
-        a {
-            color: #3F51B5;
-            text-decoration: none;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Halant:300&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="container">
-    <div class="content">
+<div class="flex h-screen m-auto flex-col error-404">
+    <div class="pb-16 flex flex-col justify-center w-full max-w-4xl mx-auto flex-grow text-center">
         <h1 class="title"> 404 </h1>
         <h2 class="subtitle"> Page Not Found </h2>
-        <div class="my-lg">
+        <div class="mx-auto my-10">
             <img src="/404.svg" alt="Page not found!" width="460px">
         </div>
-        <div class="my-md">
-            <p class="text">We made a few rounds looking everywhere for that page but we couldn't locate it.</p>
-            <p class="text">Getting lost in space is no fun.</p>
-            <p class="text"><a href="/">&leftarrow; Let's go home!</a></p>
+        <div class="my-4 text leading-snug">
+            <p>We made a few rounds looking everywhere for that page but we couldn't locate it.</p>
+            <p class="pt-4">Getting lost in space is no fun.</p>
+            <p><a href="/" class="text-indigo-600 hover:text-red-500">&leftarrow; Let's go home!</a></p>
         </div>
     </div>
 </div>
