@@ -43,8 +43,8 @@
                 </svg>
             </a>
         </div>
-        <div class="mt-24 flex flex-row text-lg justify-between uppercase text-gray-900 font-semibold">
-            <a href="https://alpas.dev/docs" target="_docs" class="hover:text-red-600 flex">
+        <div class="mt-20 flex flex-col md:flex-row self-center md:self-stretch md:justify-between text-lg uppercase text-gray-900 font-semibold">
+            <a href="https://alpas.dev/docs" target="_docs" class="hover:text-red-600 flex mt-4">
                 <svg class="mr-2 text-gray-700 w-4" aria-hidden="true" focusable="false" role="img"
                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <g class="fa-group">
@@ -57,7 +57,7 @@
                 </svg>
                 Documentation
             </a>
-            <a href="https://twitter.com/alpasdev" target="_twitter" class="hover:text-red-600 flex">
+            <a href="https://twitter.com/alpasdev" target="_twitter" class="hover:text-red-600 flex mt-4">
                 <svg class="mr-2 text-gray-700 w-5" aria-hidden="true" focusable="false" role="img"
                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path fill="currentColor"
@@ -66,7 +66,7 @@
                 alpasdev
             </a>
             <a href="https://www.youtube.com/channel/UCGCGb-vvmff3csy8dePBJJQ" target="_alpascasts"
-               class="hover:text-red-600 flex">
+               class="hover:text-red-600 flex mt-4">
                 <svg class="mr-2 text-gray-700 w-6" aria-hidden="true" focusable="false" role="img"
                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <path fill="currentColor"
@@ -74,14 +74,14 @@
                 </svg>
                 AlpasCasts</a>
             <a href="https://join.slack.com/t/alpasdev/shared_invite/enQtODcwMjE1MzMxODQ3LTJjZWMzOWE5MzBlYzIzMWQ2MTcxN2M2YjU3MTQ5ZDE4NjBmYjY1YTljOGIwYmJmYWFlYjc4YTcwMDFmZDIzNDE"
-               target="_slack" class="hover:text-red-600 flex">
+               target="_slack" class="hover:text-red-600 flex mt-4">
                 <svg class="mr-2 text-gray-700 w-5" aria-hidden="true" focusable="false" role="img"
                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path fill="currentColor"
                           d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"></path>
                 </svg>
                 Slack </a>
-            <a href="https://github.com/alpas" target="_github" class="hover:text-red-600 flex">
+            <a href="https://github.com/alpas" target="_github" class="hover:text-red-600 flex mt-4">
                 <svg class="mr-2 text-gray-700 w-5" aria-hidden="true" focusable="false"
                      role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                     <path fill="currentColor"
