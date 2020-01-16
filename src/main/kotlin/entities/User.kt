@@ -25,7 +25,9 @@ interface User : Entity<User>, Authenticatable {
     val emailVerifiedAt: Instant?
 
     override val mustVerifyEmail: Boolean
-        get() = false
+        get() = true
+
+    override fun isEmailVerified() = emailVerifiedAt != null
 
     @ExperimentalUnsignedTypes
     fun gravatarUrl(): String {
