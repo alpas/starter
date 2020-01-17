@@ -32,9 +32,9 @@ framework that has everything you need but still gets out of your way, then Alpa
 
 ### Learning Alpas
 
-Alpas is extensively, thoroughly, and meticulously documented; and, no, we are not just talking about code
-comments and hand-waving! We have put as much effort writing and updating the documentation as we have
-spent time crafting the framework, and we are proud of it!
+Alpas is extensively  and meticulously documented; and, no, we are not just talking about code
+comments and hand-waving! We have put as much effort writing and updating the documentation as
+we have spent time crafting the framework, and we are proud of it!
 
 The [Alpas documentation site][alpas-docs] has everything you need to get started and get going—including
 two full featured tutorials showing you how to write web apps from start to finish.
