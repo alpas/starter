@@ -3,12 +3,12 @@
 >This repo is the starter template for the [Alpas web framework](https://alpas.dev). If you want to contribute to
 >the core of Alpas framework, please visit the [core Alpas repository](https://github.com/alpas/alpas).
 
-Alpas is batteries-included web framework for Kotlin with a strong focus on developers' productivity.
+Alpas is a batteries-included web framework for Kotlin with a strong focus on developers' productivity.
 The main goal of Alpas is to get you started quick and enable you to move faster while
 letting you enjoy doing what you are the best at — crafting a delightful web app.
 
 Alpas strives to be simple and elegant and wants to serve you whether you have written any JVM based web
-apps before or not—there is no xml or properties files to be configured, no scattered annotations
+apps before or not—there is no xml or properties files to configure, no scattered annotations
 to memorize—and yet, there is no huge learning curve to get started.
 
 Alpas comes bundled with most of what you need to write modern web apps—**authentication**,
@@ -47,8 +47,15 @@ We want you to enjoy writing a web app in Alpas. If you are not, please let us k
 improving until it is just right for all of us. The best way to let us help you is by joining our 
 [official Slack][alpas-slack] and asking questions. [Please do!][alpas-slack].
 
+### About Starter Repo
+
+This repo is meant to be used as a template for starting a new Alpas web app. After creating a new
+repo off of this template and cloning on your local machine, make sure to follow the
+[setup instructions][alpas-setup] to get started.
+
 
 [happy-kotlin]: https://medium.com/signal-v-noise/kotlin-makes-me-a-happier-better-programmer-1fc668724563
 [alpas-slack]: https://join.slack.com/t/alpasdev/shared_invite/enQtODcwMjE1MzMxODQ3LTJjZWMzOWE5MzBlYzIzMWQ2MTcxN2M2YjU3MTQ5ZDE4NjBmYjY1YTljOGIwYmJmYWFlYjc4YTcwMDFmZDIzNDE
 [alpas-docs]: https://alpas.dev/docs
+[alpas-setup]: https://alpas.dev/docs/installation
 
