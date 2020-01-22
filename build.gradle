@@ -50,10 +50,10 @@ jar {
 }
 
 shadowJar {
-    destinationDir = file("./")
-    baseName = '__APP_NAME__'
-    classifier = null
-    version = null
+    destinationDirectory = file("./")
+    archiveBaseName.set('__APP_NAME__')
+    archiveClassifier.set(null)
+    archiveVersion.set(null)
 }
 
 test {
@@ -63,3 +63,6 @@ test {
 installDist {
     destinationDir = file("./build/install/__APP_NAME__")
 }
+
+// alpas script
+apply from: 'alpas.gradle'

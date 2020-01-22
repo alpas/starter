@@ -1,0 +1,30 @@
+def group = 'Alpas tasks'
+
+task install {
+    // TODO installdist with parameter
+}
+
+task buildProject {
+    // alias
+    dependsOn install
+}
+
+task buildJar {
+    // TODO shadowJar without stdout/stderr
+}
+
+task installQuietly {
+    // TODO install without stdout/stderr
+}
+
+task runApp {
+    // TODO wat?
+}
+
+[
+        install,
+        buildProject,
+        buildJar,
+        installQuietly,
+        runApp
+].forEach { task -> task.group = group }
