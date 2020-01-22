@@ -1,7 +1,35 @@
 def group = 'Alpas tasks'
 
+void cecho(colour, text) {
+    printf('%s%s \033[0m', [
+            'RED'   : '\033[0;31m',
+            'GREEN' : '\033[0;32m',
+            'YELLOW': '\033[1;33m',
+            'BLUE'  : '\033[1;34m'
+    ].get(colour), text)
+}
+
+void cecholn(colour, text) {
+    cecho(colour, text)
+    print('\n')
+}
+
+void wasSuccessful(failure) {
+    if (failure) {
+        cecholn 'RED', 'Failed!'
+    } else {
+        cecholn 'GREEN', 'Done!'
+    }
+}
+
 task install {
-    // TODO installdist with parameter
+    dependsOn installDist
+}
+installDist.doFirst {
+    cecholn 'YELLOW', 'Building ' + startScripts.applicationName
+}
+install.finalizedBy {
+    wasSuccessful(installDist)
 }
 
 task buildProject {
@@ -11,6 +39,13 @@ task buildProject {
 
 task buildJar {
     // TODO shadowJar without stdout/stderr
+    dependsOn shadowJar
+}
+buildJar.doFirst {
+    cecholn 'YELLOW', 'Building JAR...'
+}
+buildJar.finalizedBy {
+    wasSuccessful(shadowJar)
 }
 
 task installQuietly {
