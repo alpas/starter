@@ -72,7 +72,6 @@ cecho() {
 checkJava() {
     java=$(command -v java)
     cecholn "BLUE" " Making sure the correct version of Java is installed..."
-    # echo $foobar
     if [[ "$java" ]]; then
         _java=java
     elif [[ -n "$JAVA_HOME" ]] && [[ -x "$JAVA_HOME/bin/java" ]];  then
@@ -136,7 +135,7 @@ elif [[ $1 == *"init"* ]]; then
     cecho "RED" " Oops!"
     echo "Looks like your app is already crafted."
   else
-    cecholn "BLUE" " Crafting your app ..."
+    cecholn "BLUE" " Crafting your app...\n"
 
     # todo: check that the proper versions of Gradle is installed
     checkJava
@@ -144,7 +143,7 @@ elif [[ $1 == *"init"* ]]; then
     chmod +x ./gradlew
     ./gradlew >/dev/null 2>&1
 
-    cecholn "BLUE" " Copying .env file"
+    cecholn "BLUE" " Copying .env file..."
     cp ./.env.example ./.env
 
     # todo: replace perl with bash
@@ -152,16 +151,25 @@ elif [[ $1 == *"init"* ]]; then
     app_name="${2##*.}"
     perl -p -i -e 's/__APP_NAME__/'"${app_name}"'/g' `grep -Ril --exclude-dir=node_modules --exclude-dir=.gradle --exclude-dir=.idea  __APP_NAME__ .`
 
-    cecholn "BLUE" " Generating your app key."
+    cecholn "BLUE" " Generating your app key..."
     app_key=$(env LC_CTYPE=C tr -dc "A-Za-z0-9_$%^&*()-+=" </dev/urandom | head -c 32 | base64)
     perl -p -i -e 's/__APP_KEY__/'"base64:${app_key}"'/g' `grep -l __APP_KEY__ .env`
 
-    cecholn "BLUE" " Building your app. This will take few seconds."
+    cecholn "BLUE" " Building your app..."
+    cecholn "" " This will take few seconds."
+    rm -rf ./build
+    rm -rf ./out
     gradle build --quiet >/dev/null 2>&1
     build --quiet >/dev/null 2>&1
 
-    cecholn "GREEN" " ✓ You app is crafted. Let's build something awesome!"
-    cecholn "GREEN" " Don't forget to checkout the docs: https://alpas.dev/docs"
+    cecholn "BLUE" " Linking web folder..."
+    ./alpas link:web --quiet
+
+    printf "\n"
+    cecholn "GREEN" " ✓ You app is crafted!\n"
+    cecholn "" " Run ./alpas serve to serve your app."
+    cecholn "" " Run ./alpas help to see all the available Alpas commands.\n"
+    cecholn "YELLOW" " Don't forget to checkout the docs: https://alpas.dev/docs"
   fi
 else
   run_app "$@"

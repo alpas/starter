@@ -15,4 +15,3 @@ class DatabaseConfig(env: Environment) : DatabaseConfig(env) {
         addConnection("mysql", lazy { MySqlConnection(env) })
     }
 }
-

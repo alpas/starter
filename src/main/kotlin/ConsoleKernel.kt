@@ -6,7 +6,6 @@ import dev.alpas.console.ConsoleKernel
 import dev.alpas.encryption.EncryptionServiceProvider
 import dev.alpas.hashing.HashServiceProvider
 import dev.alpas.logging.LoggerServiceProvider
-import dev.alpas.ozone.OzoneServiceProvider
 import dev.alpas.routing.RouteServiceProvider
 import kotlin.reflect.KClass
 
@@ -17,8 +16,8 @@ class ConsoleKernel : ConsoleKernel() {
             LoggerServiceProvider::class,
             EncryptionServiceProvider::class,
             HashServiceProvider::class,
-            RouteServiceProvider::class,
-            OzoneServiceProvider::class
+            RouteServiceProvider::class
+            //,dev.alpas.ozone.OzoneServiceProvider::class
         )
     }
 }
