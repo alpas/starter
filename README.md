@@ -3,6 +3,10 @@
 >This repo is the starter template for the [Alpas web framework](https://alpas.dev). If you want to contribute to
 >the core of Alpas framework, please visit the [core Alpas repository](https://github.com/alpas/alpas).
 
+#### **New to Alpas?** Read [the docs][alpas-docs] or follow a full tutorial on [Building a web app from scratch to finish with Alpas + Kotlin][devto-tutorial].
+
+---
+
 Alpas is a batteries-included web framework for Kotlin with a strong focus on developers' productivity.
 The main goal of Alpas is to get you started quick and enable you to move faster while
 letting you enjoy doing what you are the best at — crafting a delightful web app.
@@ -37,7 +41,7 @@ comments and hand-waving! We have put as much effort writing and updating the do
 we have spent time crafting the framework, and we are proud of it!
 
 The [Alpas documentation site][alpas-docs] has everything you need to get started and get going—including
-two full featured tutorials showing you how to write web apps from start to finish.
+[a full featured tutorial][devto-tutorial] showing you how to write web apps from start to finish.
 
 If you are not satisfied with the quality of Alpas documentation or feel like something is not properly
 documented, please open an issue, and we'll tackle it with a high priority. Feel free to send a pull
@@ -53,9 +57,20 @@ This repo is meant to be used as a template for starting a new Alpas web app. Af
 repo off of this template and cloning on your local machine, make sure to follow the
 [setup instructions][alpas-setup] to get started.
 
+### Pre-requisites
+
+Please visit [Alpas installation documentation][alpas-setup] for a full list of system
+requirements and pre-requisites. Here is a quick list of what you need:
+
+* *nix machine. Windows is supported but only under the WSL or using GitBash.
+* JDK version >= 9.0
+* Gradle >= 5.6
+* IntelliJ IDEA Community Editor or Ultimate.
+* NodeJS and Yarn (Optional)
 
 [happy-kotlin]: https://medium.com/signal-v-noise/kotlin-makes-me-a-happier-better-programmer-1fc668724563
 [alpas-slack]: https://join.slack.com/t/alpasdev/shared_invite/enQtODcwMjE1MzMxODQ3LTJjZWMzOWE5MzBlYzIzMWQ2MTcxN2M2YjU3MTQ5ZDE4NjBmYjY1YTljOGIwYmJmYWFlYjc4YTcwMDFmZDIzNDE
 [alpas-docs]: https://alpas.dev/docs
 [alpas-setup]: https://alpas.dev/docs/installation
+[devto-tutorial]: https://dev.to/ashokgelal/let-s-build-a-web-app-from-scratch-to-finish-with-alpas-and-kotlin-29eo
 

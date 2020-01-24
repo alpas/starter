@@ -15,8 +15,11 @@ if (mix.inProduction()) {
 } else {
     mix.browserSync({
         open: false,
+        notify: false,
+        proxy: `localhost:${process.env.MIX_APP_PORT}`,
         files: [
-            'build/**/*',
+            'out/**/*',
+            `${publicPath}`,
         ],
     })
 }
