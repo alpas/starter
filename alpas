@@ -2,52 +2,6 @@
 
 APP_NAME="__APP_NAME__"
 
-APP_BIN_PATH="./build/install/$APP_NAME/bin/$APP_NAME"
-
-install() {
-  cecholn "YELLOW" "Building $APP_NAME..."
-  if ./gradlew "$@" installdist; then
-    cecholn "GREEN" "🙌 Done!"
-  else
-    cecholn "RED" "😿 Failed!"
-  fi
-}
-
-build() {
-    install "$@"
-}
-
-buildJar() {
-  cecholn "YELLOW" "Building jar..."
-  if ./gradlew shadowJar >/dev/null 2>&1; then
-    cecholn "GREEN" "🙌 Done!"
-  else
-    cecholn "RED" "😿 Failed!"
-  fi
-}
-
-installQuietly() {
-   install --quiet >/dev/null 2>&1
-}
-
-run_app() {
-  if installQuietly; then
-    MY_PATH=$(dirname "$0")
-    MY_PATH=$( (cd "$MY_PATH" && pwd))
-    APP_PATH="${MY_PATH}"
-
-    export alpas_run_mode="console"
-    export alpas_root_dir="$APP_PATH"
-
-    "$APP_BIN_PATH" "$@"
-
-    unset alpas_run_mode
-    unset alpas_root_dir
-  else
-    cecholn "RED" "Project build failed."
-  fi
-}
-
 cecholn() {
   RED="\033[0;31m"
   GREEN='\033[0;32m'
@@ -67,6 +21,47 @@ cecho() {
   NC='\033[0m' # No Color
 
   printf "${!1}${2} ${NC}"
+}
+
+install() {
+  cecholn "BLUE" "Building $APP_NAME..."
+  if ./gradlew "$@" installdist; then
+    cecholn "GREEN" "🙌 Done!"
+  else
+    cecholn "RED" "😿 Failed!"
+  fi
+}
+
+build() {
+  cecholn "BLUE" "Building $APP_NAME..."
+  if ./gradlew build -q >/dev/null 2>&1; then
+    cecholn "GREEN" "🙌 Done!"
+  else
+    cecholn "RED" "😿 Failed!"
+  fi
+}
+
+buildJar() {
+  cecholn "BLUE" "Building $APP_NAME jar..."
+  if ./gradlew shadowJar >/dev/null 2>&1; then
+    cecholn "GREEN" "🙌 Done!"
+  else
+    cecholn "RED" "😿 Failed!"
+  fi
+}
+
+runApp() {
+    MY_PATH=$(dirname "$0")
+    MY_PATH=$( (cd "$MY_PATH" && pwd))
+    APP_PATH="${MY_PATH}"
+
+    export alpas_run_mode="console"
+    export alpas_root_dir="$APP_PATH"
+
+    ./gradlew run -q --args="$*" #>/dev/null 2>&1
+
+    unset alpas_run_mode
+    unset alpas_root_dir
 }
 
 checkJava() {
@@ -101,33 +96,31 @@ if [[ $# -eq 1 ]]; then
     cecholn "GREEN" " ./alpas init com.example.blog"
     ;;
   watch)
-    ./gradlew shadowJar >/dev/null 2>&1
-    java -jar ${APP_NAME}.jar
+    shift;
+    ./gradlew run -t --quiet "$@"
     ;;
   build)
-    install
+    build
+    ;;
+  run)
+    shift;
+    ./gradlew run --quiet "$@"
     ;;
   serve)
-    ./gradlew shadowJar >/dev/null 2>&1
-    java -jar ${APP_NAME}.jar
+    shift;
+    ./gradlew run --quiet "$@"
     ;;
   help)
-    run_app --help
+    runApp --help
     ;;
   list)
-    run_app --help
+    runApp --help
     ;;
   jar)
-    cecholn "BLUE" "Building jar..."
-    ./gradlew shadowJar >/dev/null 2>&1
-    if [[ $? -eq 0 ]]; then
-      cecholn "GREEN" "Completed!"
-    else
-      cecholn "RED" "Failed!"
-    fi
+    buildJar
     ;;
   *)
-    run_app "$@"
+    runApp "$@"
     ;;
   esac
 elif [[ $1 == *"init"* ]]; then
@@ -172,5 +165,5 @@ elif [[ $1 == *"init"* ]]; then
     cecholn "YELLOW" " Don't forget to checkout the docs: https://alpas.dev/docs"
   fi
 else
-  run_app "$@"
+  runApp "$@"
 fi
