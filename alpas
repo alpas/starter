@@ -149,7 +149,7 @@ elif [[ $1 == *"init"* ]]; then
     perl -p -i -e 's/__APP_KEY__/'"base64:${app_key}"'/g' `grep -l __APP_KEY__ .env`
 
     cecholn "BLUE" " Building your app..."
-    cecholn "" " This will take few seconds."
+    cecholn "" " This will take a few seconds."
     rm -rf ./build
     rm -rf ./out
     gradle build --quiet >/dev/null 2>&1
@@ -159,7 +159,7 @@ elif [[ $1 == *"init"* ]]; then
     ./alpas link:web --quiet
 
     printf "\n"
-    cecholn "GREEN" " ✓ You app is crafted!\n"
+    cecholn "GREEN" " ✓ Your app is crafted!\n"
     cecholn "" " Run ./alpas serve to serve your app."
     cecholn "" " Run ./alpas help to see all the available Alpas commands.\n"
     cecholn "YELLOW" " Don't forget to checkout the docs: https://alpas.dev/docs"
