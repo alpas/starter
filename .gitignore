@@ -71,3 +71,4 @@ node_modules
 .env.*
 !.env.example
 storage/sessions
+storage/src
