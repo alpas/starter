@@ -22,7 +22,7 @@ interface User : Entity<User>, Authenticatable {
     var name: String?
     var createdAt: Instant?
     var updatedAt: Instant?
-    val emailVerifiedAt: Instant?
+    var emailVerifiedAt: Instant?
 
     override val mustVerifyEmail: Boolean
         get() = true
