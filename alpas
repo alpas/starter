@@ -157,6 +157,7 @@ elif [[ $1 == *"init"* ]]; then
 
     cecholn "BLUE" " Linking web folder..."
     ./alpas link:web --quiet
+    ./alpas link:templates --quiet
 
     printf "\n"
     cecholn "GREEN" " ✓ Your app is crafted!\n"

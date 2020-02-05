@@ -7,7 +7,7 @@ import dev.alpas.ozone.EntityFactory
 import dev.alpas.ozone.faker
 import java.time.Instant
 
-internal class UserFactory(private val hasher: Hasher) : EntityFactory<User> {
+internal class UserFactory(private val hasher: Hasher) : EntityFactory<User>() {
     override val table = Users
 
     override fun entity(): User {
@@ -17,6 +17,14 @@ internal class UserFactory(private val hasher: Hasher) : EntityFactory<User> {
             name = faker.name().name()
             updatedAt = Instant.now()
             createdAt = Instant.now()
+        }
+    }
+
+    override fun transform(name: String, value: Any?): Any? {
+        return if (name == "password") {
+            hasher.hash(value.toString())
+        } else {
+            value
         }
     }
 }
