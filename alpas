@@ -155,8 +155,9 @@ elif [[ $1 == *"init"* ]]; then
     gradle build --quiet >/dev/null 2>&1
     build --quiet >/dev/null 2>&1
 
-    cecholn "BLUE" " Linking web folder..."
+    cecholn "BLUE" " Linking src/main/resources/web folder..."
     ./alpas link:web --quiet
+    cecholn "BLUE" " Linking src/main/resources/templates folder..."
     ./alpas link:templates --quiet
 
     printf "\n"
