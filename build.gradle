@@ -37,10 +37,10 @@ dependencies {
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "9"
 }
 compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "9"
 }
 
 jar {
@@ -49,12 +49,22 @@ jar {
     }
 }
 
+def javaVersion = JavaVersion.VERSION_1_9;
+
+task enforceVersion() {
+    def foundVersion = JavaVersion.current();
+    if (foundVersion != javaVersion)
+        throw new IllegalStateException("Unsupported Java version ${foundVersion}. Minimum Java version ${javaVersion} is required.")
+}
+
 shadowJar {
     destinationDirectory = file("./")
     archiveBaseName.set('__APP_NAME__')
     archiveClassifier.set(null)
     version = null
 }
+
+compileJava.dependsOn(enforceVersion)
 
 test {
     useJUnitPlatform()
