@@ -52,11 +52,9 @@ jar {
     }
 }
 
-def javaVersion = JavaVersion.VERSION_1_9;
-
 task enforceVersion() {
     def foundVersion = JavaVersion.current();
-    if (foundVersion != javaVersion)
+    if (!JavaVersion.current().isJava9Compatible())
         throw new IllegalStateException("Unsupported Java version ${foundVersion}. Minimum Java version ${javaVersion} is required.")
 }
 
