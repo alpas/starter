@@ -52,20 +52,12 @@ jar {
     }
 }
 
-task enforceVersion() {
-    def foundVersion = JavaVersion.current();
-    if (!JavaVersion.current().isJava9Compatible())
-        throw new IllegalStateException("Unsupported Java version ${foundVersion}. Minimum Java version ${javaVersion} is required.")
-}
-
 shadowJar {
     destinationDirectory = file("./")
     archiveBaseName.set('__APP_NAME__')
     archiveClassifier.set(null)
     version = null
 }
-
-compileJava.dependsOn(enforceVersion)
 
 test {
     useJUnitPlatform()
