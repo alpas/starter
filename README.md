@@ -68,6 +68,12 @@ requirements and pre-requisites. Here is a quick list of what you need:
 * IntelliJ IDEA Community Editor or Ultimate.
 * NodeJS and Yarn (Optional)
 
+### Quick Start
+After you have finished selecting option to **Use this template**, added a project name, and cloned to your local machine per [Creating New Project](https://alpas.dev/docs/installation) instructions, you can now perform the following steps on your machine to get rollin'! 
+1. At the root of the project, there is a script named *alpas*. Make it exacutable: `chmod +x ./alpas`
+2. Initialize your new project using the full package name: `./alpas init com.example.myapp`
+3. To serve your app, do: `./alpas serve`
+
 [happy-kotlin]: https://medium.com/signal-v-noise/kotlin-makes-me-a-happier-better-programmer-1fc668724563
 [alpas-slack]: https://join.slack.com/t/alpasdev/shared_invite/enQtODcwMjE1MzMxODQ3LTJjZWMzOWE5MzBlYzIzMWQ2MTcxN2M2YjU3MTQ5ZDE4NjBmYjY1YTljOGIwYmJmYWFlYjc4YTcwMDFmZDIzNDE
 [alpas-docs]: https://alpas.dev/docs
