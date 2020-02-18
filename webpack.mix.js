@@ -1,6 +1,9 @@
+// https://alpas.dev/docs/mixing-assets
+
 let mix = require('laravel-mix')
 const tailwindcss = require('tailwindcss')
 const resourcesPath = 'src/main/resources'
+const templatesPath = `${resourcesPath}/templates`
 const publicPath = `${resourcesPath}/web`
 
 mix
@@ -19,7 +22,8 @@ if (mix.inProduction()) {
         proxy: `localhost:${process.env.MIX_APP_PORT}`,
         files: [
             'out/**/*',
-            `${publicPath}`,
+            publicPath,
+            templatesPath
         ],
     })
 }

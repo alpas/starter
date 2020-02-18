@@ -10,6 +10,7 @@ import dev.alpas.routing.RouteServiceProvider
 import dev.alpas.ozone.OzoneServiceProvider
 import kotlin.reflect.KClass
 
+// https://alpas.dev/docs/alpas-console
 @Suppress("unused")
 class ConsoleKernel : ConsoleKernel() {
     override fun serviceProviders(app: Application): Iterable<KClass<out ServiceProvider>> {

@@ -7,6 +7,7 @@ import dev.alpas.ozone.Seeder
 import dev.alpas.ozone.from
 import dev.alpas.printAsSuccess
 
+// https://alpas.dev/docs/seeding
 internal class DatabaseSeeder : Seeder() {
     override fun run(app: Application) {
         val user = from(UserFactory(app.make()), "name" to "Jane Doe")

@@ -13,6 +13,7 @@ import dev.alpas.session.SessionServiceProvider
 import dev.alpas.view.ViewServiceProvider
 import kotlin.reflect.KClass
 
+// https://alpas.dev/docs/request-response#httpcall
 @Suppress("unused")
 class HttpKernel : HttpKernel() {
     override fun serviceProviders(app: Application): Iterable<KClass<out ServiceProvider>> {

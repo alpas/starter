@@ -5,6 +5,7 @@ import dev.alpas.mailing.drivers.LocalMailDriver
 import dev.alpas.mailing.drivers.SmtpDriver
 import dev.alpas.mailing.MailConfig as BaseConfig
 
+// https://alpas.dev/docs/mail
 @Suppress("unused")
 class MailConfig(env: Environment) : BaseConfig(env) {
     init {

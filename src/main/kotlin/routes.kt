@@ -4,6 +4,7 @@ import __PACKAGE__.controllers.WelcomeController
 import dev.alpas.routing.RouteGroup
 import dev.alpas.routing.Router
 
+// https://alpas.dev/docs/routing
 fun Router.addRoutes() = apply {
     group {
         webRoutesGroup()
@@ -13,7 +14,7 @@ fun Router.addRoutes() = apply {
 }
 
 private fun RouteGroup.webRoutesGroup() {
-    get("/", WelcomeController::class).name("welcome")
+    get("/", WelcomeController::index).name("welcome")
     // register more web routes here
 }
 
