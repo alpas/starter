@@ -26,7 +26,7 @@
             </div>
             <div class="my-4 text leading-snug">
                 <p>Uh, oh! We ran into an issue.</p>
-                <p>This is our fault but not yours. We'll find the culprit who did this. But first, let's
+                <p>This is our fault not yours. We'll find the culprit who did this. But first, let's
                     safely <a href="/" class="text-indigo-600 hover:text-red-500">get back home</a>!</p>
             </div>
         {% endif %}
