@@ -32,7 +32,7 @@ Create an HTML web app or keep it simple with an API only app, Alpas gets out of
 
 This repo is meant to be used as a template for starting a new Alpas web app. After creating a new
 repo off of this template and cloning on your local machine, make sure to follow the
-[setup instructions][alpas-setup] to get started.
+[setup instructions][alpas-setup] to get started. After you have completed your app, don't forget to share which the community by requesting to add it to [Alpas Resources][alpas-resources]
 
 ### Pre-requisites
 
@@ -56,3 +56,4 @@ After you have finished selecting option to **Use this template**, added a proje
 [alpas-docs]: https://alpas.dev/docs
 [alpas-setup]: https://alpas.dev/docs/installation
 [devto-tutorial]: https://dev.to/ashokgelal/let-s-build-a-web-app-from-scratch-to-finish-with-alpas-and-kotlin-29eo
+[alpas-resources]: https://github.com/alpas/resources
