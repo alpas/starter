@@ -72,3 +72,4 @@ node_modules
 !.env.example
 storage/sessions
 storage/src
+!gradle/wrapper
