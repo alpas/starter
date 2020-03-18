@@ -1,6 +1,7 @@
 package __PACKAGE__.configs
 
 import dev.alpas.Environment
+import dev.alpas.ozone.ConnectionConfig
 import dev.alpas.ozone.DatabaseConfig
 import dev.alpas.ozone.MySqlConnection
 
@@ -14,6 +15,6 @@ class DatabaseConfig(env: Environment) : DatabaseConfig(env) {
 
     // https://alpas.dev/docs/database-getting-started#multiple-database-connections
     private fun addConnections(env: Environment) {
-        addConnection("mysql", lazy { MySqlConnection(env) })
+        addConnection("mysql", lazy { MySqlConnection(env, ConnectionConfig(extraParams = mapOf("serverTimezone" to "UTC"))) })
     }
 }
