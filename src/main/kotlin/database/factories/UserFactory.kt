@@ -20,12 +20,4 @@ internal class UserFactory(private val hasher: Hasher) : EntityFactory<User, Use
             createdAt = Instant.now()
         }
     }
-
-    override fun transform(name: String, value: Any?): Any? {
-        return if (name == "password") {
-            hasher.hash(value.toString())
-        } else {
-            value
-        }
-    }
 }
