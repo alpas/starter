@@ -14,6 +14,6 @@ class DatabaseConfig(env: Environment) : DatabaseConfig(env) {
 
     // https://alpas.dev/docs/database-getting-started#multiple-database-connections
     private fun addConnections(env: Environment) {
-        addConnection("mysql", lazy { MySqlConnection(env) })
+        addConnection("mysql", lazy { MySqlConnection(env, ConnectionConfig(extraParams = mapOf("useUnicode" to true, "characterEncoding" to "UTF-8", "allowPublicKeyRetrieval" to "true"))) })
     }
 }
