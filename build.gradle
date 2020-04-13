@@ -34,7 +34,7 @@ dependencies {
 //    implementation 'com.github.alpas:alpas:4b0d0f'
 //    testImplementation 'com.github.alpas.alpas:pulsar:4b0d0f'
 
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
 }
 
 run.doFirst { environment 'ALPAS_VERSION', alpas_version }
