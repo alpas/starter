@@ -1,13 +1,16 @@
 <template>
-    <div>Hello, __APP__NAME!</div>
+  <div>{{ greetings }}</div>
 </template>
 
 <script>
-    export default {
-        name: "Welcome"
-    }
+export default {
+  name: "Welcome",
+  data() {
+    return {
+      greetings: "The Rapid and Delightful Kotlin Web Framework ",
+    };
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
